@@ -13,25 +13,25 @@ int main(){
     srand(time(NULL));
     int secret_number = rand() % 101;
     
-
     //A loop.
-    do
+    while (1) //infity loop
     {
         //Pedindo um número aleatório.
         //Asking for a guess.
         unsigned int guess;
         cout << "Please input your guess" << std::endl;
         cin >> guess;
-        
+
         //checking if the input was a integer number and if the input was a integer number, the else statement will compared the input with our secret_number
         if(cin.fail()){
             cout << "Please, input only integer numbers" << std::endl;
-        }else
-        {
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        }else{
+    
             if(guess < secret_number)
             { 
                 cout << "Too small!" << std::endl;
-                continue;
             }
             else if(guess == secret_number)
             {
@@ -42,7 +42,7 @@ int main(){
             {
                 cout << "Too big!" << std::endl;
                 continue;
-            } 
-        }
-    } while (1); //infity loop
+            }
+        } 
+    } 
 }
